@@ -29,6 +29,7 @@
   /* fill: #fff; */
   fill: rgb(2, 0, 126);
   text-anchor: middle;
+  font-size: 10px;
 }
 
 .stateCircle {
