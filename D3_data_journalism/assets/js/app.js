@@ -10,13 +10,13 @@ function makeResponsive() {
     // SVG wrapper dimensions are determined by the current width and
     // height of the browser window.
     var svgWidth = window.innerWidth*.6;
-    var svgHeight = window.innerHeight*.5;
+    var svgHeight = window.innerHeight*.7;
 
     var margin = {
         top: 50,
-        bottom: 50,
+        bottom: 100,
         right: 50,
-        left: 50
+        left: 100
     };
 
 
@@ -93,7 +93,8 @@ function makeResponsive() {
             .attr("class", "d3-tip")
             .offset([80, -60])
             .html(function(d) {
-                return (`${d.state}<br>Poverty: ${d.poverty}% <br>Healthcare: ${d.healthcare}%`);
+                return (`<strong>${d.state}</strong><br>Poverty: ${d.poverty}% 
+                <br>Healthcare: ${d.healthcare}%`);
             });
             
 
@@ -104,11 +105,28 @@ function makeResponsive() {
         circlesGroup.on("mouseover", function(d) {
             toolTip.show(d, this);
         })
-    // Step 4: Create "mouseout" event listener to hide tooltip
+         // Step 4: Create "mouseout" event listener to hide tooltip
         .on("mouseout", function(d) {
             toolTip.hide(d);
         });
    
+        // x- Label
+        chartGroup.append("text")
+            .attr("transform", `translate(${width / 2}, ${height + margin.top})`)
+            .classed("active", true)
+            .text("In Poverty (%)");
+
+
+        // y label
+        chartGroup.append("text")
+            .attr("transform","rotate(-90)")
+            .attr("y", -margin.left/2)
+            .attr("x", -(height/2))
+            .classed("active", true)
+            .text("Lacking Healthcare (%)");
+
+        
+
 
     }).catch(function(error) {
     console.log(error);
