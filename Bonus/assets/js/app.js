@@ -34,6 +34,7 @@ function makeResponsive() {
 
     // selecting an initial demographic for each axis   
     var xdmg = "poverty";
+    
     var ydmg = "healthcare";
     
     function x_scale(data,xdmg){
