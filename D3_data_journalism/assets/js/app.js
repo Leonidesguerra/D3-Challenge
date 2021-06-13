@@ -115,8 +115,6 @@ function makeResponsive() {
             .attr("transform", `translate(${width / 2}, ${height + margin.top})`)
             .classed("active", true)
             .text("In Poverty (%)");
-
-
         // y label
         chartGroup.append("text")
             .attr("transform","rotate(-90)")
